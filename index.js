@@ -1,0 +1,56 @@
+const cors = require('cors');
+require('dotenv').config()
+const express = require('express');
+const  stripe = require('stripe')(process.env.REACT_APP_SK);
+const uuid = require('uuid');
+const nodemailer = require('nodemailer');
+
+const bodyparse = require('body-parser');
+
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+
+
+
+app.post('/send_mail', async (req,res) => {
+    let {mailBody} = req.body;
+    
+    const transport = nodemailer.createTransport({    
+        service:'gmail', 
+        auth: {
+            user:'milleraseani@gmail.com',
+            pass: 'donttrytoguess'
+        }
+    });
+
+//
+
+  const mailResult = JSON.stringify(mailBody);
+  const imageLink = 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VsZGluZ3xlbnwwfHwwfHw%3D&w=1000&q=80'
+
+   await transport.sendMail({
+        from:process.env.MAIL_FROM,
+        to:mailBody.mailTo,
+        subject:"O Miller Wielding LLC",
+        html: `<div style='display:flex; text-align:center; align-items:center'> <p style='display:grid; grid-template-columns: 1fr; font-size:150%'>Invoice From O Miller Wielding LLC <button style='margin: 5px; border-radius: 10px; background-color:lightgray; width:50%; height:100%; text-decoration:none; margin-left:25%;  border:0px;'> <a style='color:black;outline:none;text-decoration:none;' href=http://localhost:3000/pay/${mailResult}> Link to Service </a> </button <img style= width='300' height='300'  src='${imageLink}'/> Thank you for your business! </p> </div>`,
+        text: `hi ` 
+    }, (err, info) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log(info.response)
+
+    });
+    
+    return 200
+})
+
+
+
+
+
+
+app.listen(8282, () => console.log('listening'))
