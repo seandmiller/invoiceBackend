@@ -9,16 +9,17 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 app.use(express.json());
-app.use(cors());
 
 var corsOptions = {
     origin: 'http://localhost:3000',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
   }
+app.use(cors(corsOptions));
 
 
 
-app.post('/send_mail',cors(corsOptions)  , async (req,res) => {
+
+app.post('/send_mail', async (req,res) => {
     let {mailBody} = req.body;
     
     const transport = nodemailer.createTransport({    
