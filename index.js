@@ -14,7 +14,9 @@ var corsOptions = {
     origin: "*",
     method: "*"
   }
-app.use(cors(corsOptions));
+app.use(cors({
+    origin:'*'
+}));
 
 
 
