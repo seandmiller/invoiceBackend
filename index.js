@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 var corsOptions = {
-    origin: "http://127.0.0.1:3000",
+    origin: "*",
     method: "*"
   }
 app.use(cors(corsOptions));
