@@ -9,14 +9,12 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 app.use(express.json());
-
-var corsOptions = {
-    origin: "*",
-    method: "*"
-  }
 app.use(cors({
-    origin:'*'
+    origin:'*',
+    methods:"*"
 }));
+
+
 
 
 
