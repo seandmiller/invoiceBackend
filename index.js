@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin:'http://127.0.0.1:3000',
+    origin:'https://www.omillerwieldinginvoice.com/',
     methods:"*"
 }));
 
@@ -39,7 +39,7 @@ app.post('/send_mail', async (req,res) => {
         from:process.env.MAIL_FROM,
         to:mailBody.mailTo,
         subject:"O Miller Wielding LLC",
-        html: `<div style='display:flex; text-align:center'> <div style='display:grid; color:rgba(62, 111, 245, 0.938); column-gap:20px;  font-size:150%'> Invoice From O Miller Wielding LLC <button style='border-radius: 10px; background-color:rgba(62, 111, 245, 0.938); width:50%; height:100%; text-decoration:none; margin-left:25%;  border:0px;'> <a style='color:white; font-weight:700; outline:none;text-decoration:none;' href=http://localhost:3000/pay/${mailResult}> Link to Service </a> </button <img style= width='300' height='300'   src='${imageLink}'/> Thank you for your business! </div> </div>`,
+        html: `<div style='display:flex; text-align:center'> <div style='display:grid; color:rgba(62, 111, 245, 0.938); column-gap:20px;  font-size:150%'> Invoice From O Miller Wielding LLC <button style='border-radius: 10px; background-color:rgba(62, 111, 245, 0.938); width:50%; height:100%; text-decoration:none; margin-left:25%;  border:0px;'> <a style='color:white; font-weight:700; outline:none;text-decoration:none;' href=https://https://www.omillerwieldinginvoice.com//pay/${mailResult}> Link to Service </a> </button <img style= width='300' height='300'   src='${imageLink}'/> Thank you for your business! </div> </div>`,
         text: `hi ` 
     }, (err, info) => {
         if (err) {
