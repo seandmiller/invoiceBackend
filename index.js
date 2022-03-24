@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin:'https://www.omillerwieldinginvoice.com/',
+    origin:'https://www.omillerwieldinginvoice.com',
     methods:"*"
 }));
 
