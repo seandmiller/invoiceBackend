@@ -9,17 +9,14 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-    origin:'*',
-    methods:"*"
-}));
 
 
 
 
 
 
-app.post('/send_mail', async (req,res) => {
+
+app.post('/send_mail', cors({origin:"*"}), async (req,res) => {
     let {mailBody} = req.body;
     
     const transport = nodemailer.createTransport({    
