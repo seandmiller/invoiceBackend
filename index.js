@@ -10,13 +10,16 @@ const app = express();
 
 app.use(express.json());
 
+app.use(cors({
+    origin:"*",
+    optionsSuccessStatus: 200 }))
 
 
 
 
 
 
-app.post('/send_mail', cors({origin:"*"}), async (req,res) => {
+app.post('/send_mail', async (req,res) => {
     let {mailBody} = req.body;
     
     const transport = nodemailer.createTransport({    
@@ -41,7 +44,7 @@ app.post('/send_mail', cors({origin:"*"}), async (req,res) => {
            
            <button style='border-radius: 10px; background-color:rgba(62, 111, 245, 0.938); width:50%; height:100%; text-decoration:none; margin-left:25%;  border:0px;'>
             
-           <a style='color:white; font-weight:700; outline:none;text-decoration:none;' href=https://https://www.omillerwieldinginvoice.com/pay/${mailResult}> Link to Service </a> 
+           <a style='color:white; font-weight:700; outline:none;text-decoration:none;' href=https://www.omillerwieldinginvoice.com/pay/${mailResult}> Link to Service </a> 
             
             </button>
             
