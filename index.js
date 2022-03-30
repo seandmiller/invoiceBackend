@@ -26,7 +26,7 @@ app.post('/send_mail', async (req,res) => {
         service:'gmail', 
         auth: {
             user:'milleraseani@gmail.com',
-            pass: 'donttrytoguess'
+            pass: proccess.env.REACT_EMAIL
         }
     });
 
