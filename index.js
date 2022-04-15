@@ -8,8 +8,10 @@ const nodemailer = require('nodemailer');
 
 const app = express();
 
-app.use(express.json());
-
+// app.use(express.json());
+app.use(cors({
+    origin:'https://www.omillerwieldinginvoice.com'
+}))
 
 
 
