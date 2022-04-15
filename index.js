@@ -8,7 +8,7 @@ const nodemailer = require('nodemailer');
 
 const app = express();
 
-// app.use(express.json());
+app.use(express.json());
 app.use(cors({
     origin:'*',
     headers:'*'
@@ -20,8 +20,7 @@ app.get('/', (req, res)  =>{
 })
 
 app.post('/send_mail', async (req,res) => {
-    let {mailBody} = req.body;
-    
+
     const transport = nodemailer.createTransport({    
         service:'gmail', 
         auth: {
@@ -32,12 +31,12 @@ app.post('/send_mail', async (req,res) => {
 
 //
 
-  const mailResult = JSON.stringify(mailBody);
+  const mailResult = JSON.stringify(req.body);
   const imageLink = 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VsZGluZ3xlbnwwfHwwfHw%3D&w=1000&q=80'
 
    await transport.sendMail({
         from:process.env.MAIL_FROM,
-        to:mailBody.mailTo,
+        to:req.body.mailTo,
         subject:"O Miller Wielding LLC",
         html: `<div style='display:flex; text-align:center'> <div style='display:grid; color:rgba(62, 111, 245, 0.938); column-gap:20px;  font-size:150%'> 
            Invoice From O Miller Wielding LLC 
