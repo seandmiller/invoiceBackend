@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors({
     allowedHeaders:["*"],
     exposedHeaders: ['*'],
-    origin:'https://www.omillerwieldinginvoice.com/',
+    origin:'*',
     headers:'*',
     preflightContinue:false,
     methods:"GET, POST, PUT, PATCH, POST, DELETE"
