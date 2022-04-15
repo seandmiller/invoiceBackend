@@ -10,10 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors({
-    origin:'https://www.omillerwieldinginvoice.com/',
-    optionsSuccessStatus: 200 
-}))
+
 
 
 app.post('/send_mail', cors(), async (req,res) => {
