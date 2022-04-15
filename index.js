@@ -16,7 +16,7 @@ app.use(cors({
 }))
 
 
-app.post('/send_mail', async (req,res) => {
+app.post('/send_mail', cors(), async (req,res) => {
     let {mailBody} = req.body;
     
     const transport = nodemailer.createTransport({    
