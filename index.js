@@ -14,7 +14,7 @@ app.use(cors({
     exposedHeaders: ['*'],
     origin:'*',
     headers:'*',
-    preflightContinue:false,
+    preflightContinue: true,
     methods:"GET, POST, PUT, PATCH, POST, DELETE"
 }))
 
