@@ -10,8 +10,8 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    allowedHeaders:["authorization", 'Content-Type'],
-    exposedHeaders: ['authorization'],
+    allowedHeaders:["*"],
+    exposedHeaders: ['*'],
     origin:'https://www.omillerwieldinginvoice.com/',
     headers:'*',
     preflightContinue:false,
