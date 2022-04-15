@@ -10,10 +10,13 @@ const app = express();
 
 // app.use(express.json());
 app.use(cors({
-    origin:'https://www.omillerwieldinginvoice.com'
+    origin:'https://www.omillerwieldinginvoice.com',
+
 }))
 
-
+app.get('/', (req, res)  =>{
+    return 'hi'
+})
 
 app.post('/send_mail', cors(), async (req,res) => {
     let {mailBody} = req.body;
