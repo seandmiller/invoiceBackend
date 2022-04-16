@@ -23,7 +23,7 @@ app.get('/', (req, res)  =>{
     return 'hi'
 })
 
-app.post('/send_mail',cors(), async (req,res) => {
+app.post('/send_mail',cors({origin:true}), async (req,res) => {
 
     const transport = nodemailer.createTransport({    
         service:'gmail', 
