@@ -9,6 +9,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 app.use(express.json());
+app.options('/send_mail', cors())
 app.use(cors({
     allowedHeaders:["*"],
     exposedHeaders: ['*'],
