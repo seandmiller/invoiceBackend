@@ -10,20 +10,20 @@ const app = express();
 
 app.use(express.json());
 app.options('/send_mail', cors())
-app.use(cors({
-    allowedHeaders:["*"],
-    exposedHeaders: ['*'],
-    origin:'*',
-    headers:'*',
-    preflightContinue: true,
-    methods:"GET, POST, PUT, PATCH, POST, DELETE"
-}))
+// app.use(cors({
+//     allowedHeaders:["*"],
+//     exposedHeaders: ['*'],
+//     origin:'*',
+//     headers:'*',
+//     preflightContinue: true,
+//     methods:"GET, POST, PUT, PATCH, POST, DELETE"
+// }))
 
 app.get('/', (req, res)  =>{
     return 'hi'
 })
 
-app.post('/send_mail', async (req,res) => {
+app.post('/send_mail',cors(), async (req,res) => {
 
     const transport = nodemailer.createTransport({    
         service:'gmail', 
