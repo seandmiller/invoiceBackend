@@ -10,14 +10,14 @@ const app = express();
 
 app.use(express.json());
 app.options('/send_mail', cors())
-// app.use(cors({
-//     allowedHeaders:["*"],
-//     exposedHeaders: ['*'],
-//     origin:'*',
-//     headers:'*',
-//     preflightContinue: true,
-//     methods:"GET, POST, PUT, PATCH, POST, DELETE"
-// }))
+app.use(cors({
+    allowedHeaders:["*"],
+    exposedHeaders: ['*'],
+    origin:'*',
+    headers:'*',
+    preflightContinue: true,
+    methods:"GET, POST, PUT, PATCH, POST, DELETE"
+}))
 
 app.get('/', (req, res)  =>{
     return 'hi'
