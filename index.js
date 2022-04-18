@@ -13,7 +13,7 @@ app.options('/send_mail', cors())
 app.use(cors({
     allowedHeaders:["https://www.omillerwieldinginvoice.com/"],
     exposedHeaders: ['https://www.omillerwieldinginvoice.com/'],
-    origin:'https://www.omillerwieldinginvoice.com/',
+    origins:'https://www.omillerwieldinginvoice.com/',
     headers:'*',
     preflightContinue: true,
     methods:"GET, POST, PUT, PATCH, POST, DELETE"
