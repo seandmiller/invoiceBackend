@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors({origin:"*"}));
+app.use(cors({origins:"*"}));
 
 app.use(express.json());
 app.options('/send_mail', cors());
