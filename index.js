@@ -1,9 +1,9 @@
-const cors = require('cors');
+
 require('dotenv').config()
 const express = require('express');
 
 const nodemailer = require('nodemailer');
-
+const cors = require('cors');
 
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(cors({
     exposedHeaders: ['https://www.omillerwieldinginvoice.com/'],
     origins:'https://www.omillerwieldinginvoice.com/',
     headers:'*',
-    preflightContinue: true,
+    preflightContinue: false,
     methods:"GET, POST, PUT, PATCH, POST, DELETE"
 }))
 
