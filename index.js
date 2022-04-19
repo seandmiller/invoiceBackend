@@ -9,15 +9,11 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
-app.options('/send_mail', cors())
-app.use(cors({
-    allowedHeaders:["https://www.omillerwieldinginvoice.com/"],
-    exposedHeaders: ['https://www.omillerwieldinginvoice.com/'],
-    origins:'https://www.omillerwieldinginvoice.com/',
-    headers:'*',
-    preflightContinue: false,
-    methods:"GET, POST, PUT, PATCH, POST, DELETE"
-}))
+
+app.use(cors({}));
+
+app.use(express.json());
+app.options('/send_mail', cors());
 
 app.get('/', (req, res)  =>{
     return 'hi'
