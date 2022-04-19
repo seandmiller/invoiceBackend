@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors({}));
+app.use(cors({origin:"https://invoiceappnodejs.herokuapp.com/send_mail"}));
 
 app.use(express.json());
 app.options('/send_mail', cors());
