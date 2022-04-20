@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 
 // app.use(express.json());
-// app.options('/send_mail',  cors({origin:'*'}));
+app.options('/send_mail',  cors({origin:'*'}));
 
 
 app.post('/send_mail', async (req,res) => {
