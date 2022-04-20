@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors({origin:"https://https://www.omillerwieldinginvoice.com"}));
 
 app.use(express.json());
-app.options('/send_mail', cors());
+app.options('/send_mail',  cors({origin:'*'}));
 
 app.get('/', (req, res)  =>{
     return 'hi'
