@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 
-// app.use(cors());
+app.use(cors());
 
 
 app.options('/send_mail',  cors({origin:'*'}));
@@ -74,5 +74,5 @@ app.post('/send_mail', async (req,res) => {
 //   });
 
 
-app.listen( () => console.log('listening'))
+app.listen(8282, () => console.log('listening'))
 
