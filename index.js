@@ -1,37 +1,38 @@
 
 const express = require('express');
-
+require('dotenv').config()
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 
 
 const app = express();
 
-// app.use(express.json());
+app.use(express.json());
 
-app.use(cors());
+// app.use(cors());
 
-// app.use(express.json());
+
 app.options('/send_mail',  cors({origin:'*'}));
 
 
 app.post('/send_mail', async (req,res) => {
-
+    
     const transport = nodemailer.createTransport({    
         service:'gmail', 
         auth: {
             user:'milleraseani@gmail.com',
-            pass: process.env.REACT_EMAIL
+            pass: process.env.REACT_APP_EMAIL
         }
     });
 
 //
 
   const mailResult = JSON.stringify(req.body);
+  
   const imageLink = 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2VsZGluZ3xlbnwwfHwwfHw%3D&w=1000&q=80'
 
    await transport.sendMail({
-        from:process.env.MAIL_FROM,
+        from:process.env.REACT_APP_MAIL_FROM,
         to:req.body.mailTo,
         subject:"O Miller Wielding LLC",
         html: `<div style='display:flex; text-align:center'> <div style='display:grid; color:rgba(62, 111, 245, 0.938); column-gap:20px;  font-size:150%'> 
@@ -73,5 +74,5 @@ app.post('/send_mail', async (req,res) => {
 //   });
 
 
-// app.listen(8282, () => console.log('listening'))
+app.listen( () => console.log('listening'))
 
