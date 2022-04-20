@@ -7,16 +7,13 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(express.json());
+// app.use(express.json());
 
-app.use(cors({origin:"https://https://www.omillerwieldinginvoice.com"}));
+app.use(cors());
 
-app.use(express.json());
-app.options('/send_mail',  cors({origin:'*'}));
+// app.use(express.json());
+// app.options('/send_mail',  cors({origin:'*'}));
 
-app.get('/', (req, res)  =>{
-    return 'hi'
-})
 
 app.post('/send_mail', async (req,res) => {
 
@@ -66,14 +63,14 @@ app.post('/send_mail', async (req,res) => {
 
 
 
-process.once('SIGUSR2', function () {
-    process.kill(process.pid, 'SIGUSR2');
-  });
+// process.once('SIGUSR2', function () {
+//     process.kill(process.pid, 'SIGUSR2');
+//   });
   
-  process.on('SIGINT', function () {
-    // this is only called on ctrl+c, not restart
-    process.kill(process.pid, 'SIGINT');
-  });
+//   process.on('SIGINT', function () {
+//     // this is only called on ctrl+c, not restart
+//     process.kill(process.pid, 'SIGINT');
+//   });
 
 
 // app.listen(8282, () => console.log('listening'))
