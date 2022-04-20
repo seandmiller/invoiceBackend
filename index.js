@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors());
+app.use(cors({origin:"https://https://www.omillerwieldinginvoice.com"}));
 
 app.use(express.json());
 app.options('/send_mail', cors());
